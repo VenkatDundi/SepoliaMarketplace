@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title> Etherium Block Chain </title>  
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
+        
+        <!-- JS files -->
+        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>    
+    </head> 
+    <body> 
+     
+        <div style="margin-top: 1%;"> 
+            <div class="ui segment" style="width: 35%;margin: 0 auto;text-align: justify;"> 
+                <h2 class="ui green header"> Welcome to Etherium Block Chain Application </h2>
+            </div> 
+        </div> 
+      
+        <div style="margin-top: 1%;margin-bottom:1%;">  
+                <h2 class="ui yellow header" style="text-align:center;"> List an Item in Marketplace </h2>
+        </div>
+
+        <div class="ui success message" style="width: 15%;margin-right: 75%;margin-left: 2%;">
+          <!-- <i class="close icon"></i> -->Connected Address: 
+          <div class="header" id="madd"></div>
+        </div>
+
+        <table class="ui basic table" style="width: 15%; margin-left: 75%;border: 0;"> 
+          <tr> 
+              <td> 
+              <form action="home.html">
+                  <button class="ui black icon button">
+                      <i class="home icon"></i>
+                  </button>
+              </form> 
+              </td> 
+              <td> 
+              <form action="index.html">
+                  <button class="ui black icon button">
+                      <!-- <i class="sign in alternate icon"></i> --> Sign In to Wallet
+                  </button>
+              </form> 
+              </td> 
+          </tr>
+      </table>
+         
+        <!-- <form id="listitemform" action="" style="margin-top: 2%;margin-bottom: 2%;">    -->
+            <div class="ui violet padded segment" style="width: 50%;margin: 0 auto;text-align: justify;"> 
+                <table class="ui basic table"> 
+                    <!-- <tr> 
+                      <td> 
+                        <div class="ui labeled input"> 
+                          <div class="ui label"> 
+                            Enter Item Id 
+                          </div> 
+                          <input type="text" id='itemid' placeholder="Enter here!" required> 
+                        </div> 
+                      </td> 
+                    </tr>  -->
+                    <tr> 
+                      <td> 
+                        <div class="ui labeled input"> 
+                          <div class="ui label"> 
+                            Enter Item Title 
+                          </div> 
+                          <input type="text" id='title' placeholder="Enter here!" required> 
+                        </div> 
+                      </td> 
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div class="ui labeled input"> 
+                          <div class="ui label"> 
+                            Enter Item Description 
+                          </div> 
+                          <input type="text" id='description' placeholder="Enter here!" required> 
+                        </div> 
+                      </td> 
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div class="ui labeled input"> 
+                          <div class="ui label"> 
+                            Enter Item Price 
+                          </div> 
+                          <input type="text" id='price' placeholder="Enter here!" required> 
+                        </div> 
+                      </td> 
+                    </tr> 
+                    
+                    <tr> 
+                      <td> <button id='listing' class="medium ui orange button">List</button> </td> 
+                    </tr> 
+                </table> 
+            </div>
+
+            <div class="ui icon message" style="width: 50%;margin: 2% auto;text-align: justify;">
+              <!-- <i class="notched circle loading icon"></i> -->
+              <div class="content">
+                <div class="header">
+                  Please list an Item and wait for transaction to complete!
+                </div>
+                <p>Hold on this page while we redirect to fetch transaction deatils for you.</p>
+              </div>
+            </div>
+
+          <script type="text/javascript">
+            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));
+            localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));
+            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");
+          </script> 
+            
+          <script src="ListItemScript.js" ></script>
+    </body> 
+</html>

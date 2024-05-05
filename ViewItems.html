@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title> Etherium Block Chain </title>  
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
+        
+        <!-- JS files -->
+        <!-- Include your JavaScript file -->
+        
+        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>   
+    </head> 
+    <body> 
+     
+        <div style="margin-top: 2%;"> 
+            <div class="ui segment" style="width: 35%;margin: 0 auto;text-align: justify;"> 
+                <h2 class="ui green header"> Welcome to Etherium Block Chain Application </h2>
+            </div> 
+        </div> 
+      
+        <div style="margin-top: 2%;margin-bottom:1%;">  
+                <h2 class="ui yellow header" style="text-align:center;"> All Listed Items in Marketplace </h2>
+        </div>
+
+        <div class="ui success message" style="width: 15%;margin-right: 75%;margin-left: 2%;">
+            <!-- <i class="close icon"></i> -->Connected Address: 
+            <div class="header" id="madd"></div>
+          </div>
+
+        <table class="ui basic table" style="width: 15%; margin-left: 75%;border: 0;"> 
+            <tr> 
+                <td> 
+                <form action="home.html">
+                    <button class="ui black icon button">
+                        <i class="home icon"></i>
+                    </button>
+                </form> 
+                </td> 
+                <td> 
+                <form action="index.html">
+                    <button class="ui black icon button">
+                        <!-- <i class="sign in alternate icon"></i> --> Sign In to Wallet
+                    </button>
+                </form> 
+                </td> 
+            </tr>
+        </table>
+        
+        
+        <div class="ui violet padded segment" style="width: 25%;margin: 0 auto;text-align: justify;"> 
+            <table class="ui basic table"> 
+                <tr>
+                    
+                    <td style="text-align: center"> <button id='viewlist' class="medium ui orange button">View All Items</button> </td>
+                </tr> 
+                <tr>
+                    
+                    <td style="text-align: center"> <button id='viewlistsold' class="medium ui orange button">View All Sold Items</button> </td>
+                </tr>
+                <tr>
+
+                    <td style="text-align: center"> <button id='viewlistunsold' class="medium ui orange button">View All Unsold Items</button> </td>
+                </tr>
+            </table> 
+        </div>
+
+        <script type="text/javascript">
+            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));
+            localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));
+            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");
+        </script>
+       
+       <script src="ViewItemScript.js"></script>  
+    </body> 
+</html>

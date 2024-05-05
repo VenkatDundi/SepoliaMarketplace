@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title> Etherium Block Chain </title>  
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
+
+        <!-- JS files -->
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script> 
+         
+    </head> 
+    <body> 
+     
+        <div style="margin-top: 1%;"> 
+            <div class="ui segment" style="width: 35%;margin: 0 auto;text-align: justify;"> 
+                <h2 class="ui green header"> Welcome to Etherium Block Chain Application </h2>
+            </div> 
+        </div> 
+      
+        <div style="margin-top: 1%;margin-bottom:1%;">  
+                <h2 class="ui yellow header" style="text-align:center;"> Purchase an Item in Marketplace </h2>
+        </div>
+
+        <div class="ui success message" style="width: 15%;margin-right: 75%;margin-left: 2%;">
+          <!-- <i class="close icon"></i> -->Connected Address: 
+          <div class="header" id="madd"></div>
+        </div>
+
+        <table class="ui basic table" style="width: 15%; margin-left: 75%;border: 0;"> 
+          <tr> 
+              <td> 
+              <form action="home.html">
+                  <button class="ui black icon button">
+                      <i class="home icon"></i>
+                  </button>
+              </form> 
+              </td> 
+              <td> 
+              <form action="index.html">
+                  <button class="ui black icon button">
+                      <!-- <i class="sign in alternate icon"></i> --> Sign In to Wallet
+                  </button>
+              </form> 
+              </td> 
+          </tr>
+      </table>
+
+        <form class="ui form" action="ViewItems.html" style="margin-top:2%;margin-bottom:2%;margin-left:45%">
+            <button class="ui secondary button" type="submit"> View Item Details </button>
+        </form>
+         
+        <form id="purchaseitemform" action="" style="margin-top: 2%;margin-bottom: 2%;"> 
+            <div class="ui blue padded segment" style="width: 40%;margin: 0 auto;text-align: justify;"> 
+                <table class="ui basic table"> 
+                    <tr> 
+                      <td> 
+                        <div class="ui labeled input"> 
+                          <div class="ui label"> 
+                            Enter Item Id 
+                          </div> 
+                          <input type="text" id='idd' placeholder="Enter here!" required> 
+                        </div> 
+                      </td> 
+                    </tr> 
+                    <tr> 
+                        <td style="text-align: center;"> <button class="medium ui orange button" id="buyitem">Buy</button> </td> 
+                    </tr> 
+                </table>
+            </div> 
+        </form>
+        
+        <div class="ui icon message" style="width: 40%;margin: 2% auto;text-align: justify;">
+          <!-- <i class="notched circle loading icon"></i> -->
+          <div class="content">
+            <div class="header">
+              Please purchase an Item and wait for transaction to complete!
+            </div>
+            <p>Hold on this page while we redirect to fetch purchase transaction deatils for you.</p>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));
+          localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));
+          document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");
+        </script>
+        
+        <script src="PurchaseItemScript.js"></script>
+    </body> 
+</html>

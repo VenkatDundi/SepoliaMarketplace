@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title> Etherium Block Chain </title>  
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
+        
+        <!-- JS files -->
+        <!-- Include your JavaScript file -->
+        <script src="PurchaseItemScript.js"></script>
+        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>    
+    </head> 
+    <body> 
+     
+        <div style="margin-top: 2%;"> 
+            <div class="ui segment" style="width: 35%;margin: 0 auto;text-align: justify;"> 
+                <h2 class="ui green header"> Welcome to Etherium Block Chain Application </h2>
+            </div> 
+        </div> 
+      
+        <div style="margin-top: 2%;margin-bottom:1%;">  
+                <h2 class="ui yellow header" style="text-align:center;"> Purchased item details </h2>
+        </div>
+
+        <form style="margin-left:85%;margin-bottom:2%;" action="home.html">
+            <button class="ui icon button">
+                <i class="home icon"></i>
+            </button>
+        </form>
+
+        <table class="ui basic table" style="width: 15%; margin-left: 75%;border: 0;"> 
+            <tr> 
+                <td> 
+                <form action="home.html">
+                    <button class="ui black icon button">
+                        <i class="home icon"></i>
+                    </button>
+                </form> 
+                </td> 
+                <td> 
+                <form action="index.html">
+                    <button class="ui black icon button">
+                        <!-- <i class="sign in alternate icon"></i> --> Sign In to Wallet
+                    </button>
+                </form> 
+                </td> 
+            </tr>
+        </table>
+
+
+
+
+
+        
+        <div class="ui padded segment" style="width: 80%;margin: 0 auto;text-align:justify;"> 
+            <table class="ui blue celled table"> 
+                <thead> 
+                    <tr> 
+                        <th> Transaction Hash </th>
+                        <td id="output1"></td> 
+                    </tr> 
+                    <tr> 
+                        <th> Block Hash </th>
+                        <td id="output2"></td> 
+                    </tr>
+                    <tr> 
+                        <th> Block Number </th>
+                        <td id="output3"></td> 
+                    </tr>
+                    <tr> 
+                        <th> Gas Used </th>
+                        <td id="output4"></td> 
+                    </tr>
+                    <tr> 
+                        <th> Txn Event </th>
+                        <td id="output5"></td> 
+                    </tr>
+                    <tr> </tr>
+                    <tr> 
+                        <th> Item Id </th>
+                        <td id="output6"></td> 
+                    </tr>
+                    <tr> 
+                        <th> Sepolia Txn URL </th>
+                        <td><a id="output9"><i class="external alternate icon"> BlockExplorer </i></a></td> 
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr> 
+                    </tr> 
+                </tbody> 
+             </table> 
+        </div>
+
+        <script>
+        
+            const thash = localStorage.getItem("thash");
+            const bhash = localStorage.getItem("bhash");
+            const bnum = localStorage.getItem("bnum");
+            const gas = localStorage.getItem("gas");
+            const tevent = localStorage.getItem("tevent");
+            const iid = localStorage.getItem("iid");
+            const wurl = localStorage.getItem("wurl");
+            // console.log("prev res : ", localStorage.getItem('thash'))
+            // Check if the variable exists in localStorage
+            if (thash && bhash && bnum) {
+                // Display the variable value in the output div
+                document.getElementById("output1").innerText = thash;
+                document.getElementById("output2").innerText = bhash;
+                document.getElementById("output3").innerText = bnum;
+                document.getElementById("output4").innerText = gas;
+                document.getElementById("output5").innerText = tevent;
+                document.getElementById("output6").innerText = iid;
+                document.getElementById("output9").href = wurl;
+
+            } else {
+                // If the variable is not found in localStorage, display a message
+                document.getElementById("output1").innerText = "Variable not found in localStorage";
+                document.getElementById("output2").innerText = "Variable not found in localStorage";
+                document.getElementById("output3").innerText = "Variable not found in localStorage";
+                document.getElementById("output4").innerText = "Variable not found in localStorage";
+                document.getElementById("output5").innerText = "Variable not found in localStorage";
+                document.getElementById("output6").innerText = "Variable not found in localStorage";
+                document.getElementById("output9").innerText = "Variable not found in localStorage";
+            }
+            
+        </script>
+
+    </body> 
+</html>
