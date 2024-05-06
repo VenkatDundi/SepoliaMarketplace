@@ -1,4 +1,5 @@
 
+// Asynuc function to connect to Wallet
 
 async function connectToMetaMask(event) {
     event.preventDefault(); // Prevent default form submission behavior
@@ -8,8 +9,8 @@ async function connectToMetaMask(event) {
             // Request account access if needed
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             console.log("Connected to MetaMask:", accounts[0]);
-            localStorage.setItem("MyAddress", accounts[0]);
-            window.location.href = "home.html";
+            localStorage.setItem("MyAddress", accounts[0]);             // Set Wallet Address
+            window.location.href = "home.html";                 // Redirect to Home Page where User can perform actions on block chain
         } catch (error) {
             console.error("Error connecting to MetaMask:", error);
         }
@@ -21,6 +22,5 @@ async function connectToMetaMask(event) {
 
 // Add event listener to button
 document.getElementById('connectMeta').addEventListener('click', connectToMetaMask);
-//window.location.href = "home.html";
 
 

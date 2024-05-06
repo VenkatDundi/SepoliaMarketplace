@@ -4,13 +4,12 @@
         <meta charset="UTF-8"> 
         <title> Etherium Block Chain </title>  
 
+        <!-- Style Sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
         
         <!-- JS files -->
-        <!-- Include your JavaScript file -->
         <script src="PurchaseItemScript.js"></script>
-        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
             
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>    
@@ -52,11 +51,7 @@
             </tr>
         </table>
 
-
-
-
-
-        
+        <!-- Table to display the purchase item txn details -->
         <div class="ui padded segment" style="width: 80%;margin: 0 auto;text-align:justify;"> 
             <table class="ui blue celled table"> 
                 <thead> 
@@ -100,7 +95,7 @@
         <script>
         
             const thash = localStorage.getItem("thash");
-            const bhash = localStorage.getItem("bhash");
+            const bhash = localStorage.getItem("bhash");                // Get result value details to display on respective HTMl elements of this page
             const bnum = localStorage.getItem("bnum");
             const gas = localStorage.getItem("gas");
             const tevent = localStorage.getItem("tevent");

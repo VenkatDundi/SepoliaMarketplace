@@ -1,6 +1,8 @@
 
 var My_Address = localStorage.getItem('SentAddress3')
 
+// ABI file which holds the components of the contract written using solidity
+
 const contABI = [
 	{
 		"inputs": [],
@@ -214,6 +216,8 @@ const contABI = [
 
 
 console.log("Address is (without click) : ", My_Address);
+
+// Async function call to View Result of All Items
 async function handleView(event) {
 
 	event.preventDefault(); // Prevent default form submission behavior
@@ -247,7 +251,7 @@ async function handleView(event) {
 }
 
 
-
+// Async function call to View Result of Sold Items
 async function handleView2(event) {
 
 	event.preventDefault(); // Prevent default form submission behavior
@@ -278,7 +282,7 @@ async function handleView2(event) {
 
 }
 
-
+// Async function call to View Result of Unsold Items
 async function handleView3(event) {
 
 	event.preventDefault(); // Prevent default form submission behavior

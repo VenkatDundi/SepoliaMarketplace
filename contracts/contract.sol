@@ -9,7 +9,8 @@ contract Marketplace {
     address payable public owner;
     uint256 public nextItemId;
 
-    struct Item {
+    // Structure of Item Object in contract
+    struct Item {                    
         uint256 id;
         string title;
         string description;
@@ -20,6 +21,7 @@ contract Marketplace {
 
     mapping(uint256 => Item) public items;
 
+    //Events used in the contract
     event ItemListed(uint256 indexed id, string title, uint256 price, address indexed seller);
     event ItemPurchased(uint256 indexed id, address indexed buyer);
     // event ItemUpdated(uint256 indexed id, string title, string description, uint256 price);
@@ -28,12 +30,13 @@ contract Marketplace {
         require(msg.sender == owner, "Only owner can call this function");
         _;
     }
-
+    // constructor for the Owner
     constructor() {
         owner = payable(msg.sender);
         nextItemId = 1;
     }
 
+    // function to list items in marketplace with required conditions
     function listItem(string memory _title, string memory _description, uint256 _price) external {
         require(_price > 0, "Price must be greater than zero");
         items[nextItemId] = Item(nextItemId, _title, _description, _price, payable(msg.sender), false);
@@ -41,7 +44,7 @@ contract Marketplace {
         nextItemId++;
     }
 
-
+    // function purchase an item using item id and validating with corresponding price
     function purchaseItem(uint256 _itemId) external payable {
         Item storage item = items[_itemId];
         require(item.id != 0, "Item not found");
@@ -58,21 +61,7 @@ contract Marketplace {
         emit ItemPurchased(_itemId, msg.sender);
     }
 
-    // function updateItem(uint256 _itemId, string memory _title, string memory _description, uint256 _price) external onlyOwner {
-    //     require(_itemId > 0 && _itemId <= nextItemId, "Invalid item ID");
-
-    //     Item storage item = items[_itemId];
-    //     require(item.id != 0, "Item not found");
-    //     require(item.seller == msg.sender, "Only the seller can update item details");
-
-    //     // Update item details
-    //     item.title = _title;
-    //     item.description = _description;
-    //     item.price = _price;
-
-    //     emit ItemUpdated(_itemId, _title, _description, _price);
-    // }
-
+    // function to view all items
     function viewAllItems() external view returns (Item[] memory) {
         Item[] memory allItems = new Item[](nextItemId - 1);
         uint256 itemCount = 0;

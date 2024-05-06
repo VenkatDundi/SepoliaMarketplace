@@ -4,13 +4,9 @@
         <meta charset="UTF-8"> 
         <title> Etherium Block Chain </title>  
 
+        <!-- Style Sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
-        
-        <!-- JS files -->
-        <!-- Include your JavaScript file -->
-        
-        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
             
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>   
@@ -70,11 +66,11 @@
         </div>
 
         <script type="text/javascript">
-            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));
-            localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));
-            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");
+            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));            // Capture Wallet Address
+            localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));        
+            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");    // Print Wallet Address
         </script>
-       
+       <!-- Respective JS file -->
        <script src="ViewItemScript.js"></script>  
     </body> 
 </html>

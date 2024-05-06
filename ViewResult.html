@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <title> Etherium Block Chain </title>
 
+    <!-- Style Shhet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
 
-    <!-- JS files -->
-    <!-- Include your JavaScript file -->
     <script src="ListItemScript.js"></script>
-    <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
@@ -48,7 +46,7 @@
         </tr>
     </table>
 
-
+    <!-- Table to display all items of the Marketplace -->
     <div class="ui padded segment" style="width: 80%;margin: 0 auto;text-align:justify;">
         <table class="ui blue celled table" id="itemTable">
             <thead>
@@ -70,7 +68,7 @@
         const w1 = new Web3(window.ethereum);
 
 
-        const dataString = localStorage.getItem("resultJson");
+        const dataString = localStorage.getItem("resultJson");          // Extract the result information
 
         //console.log(dataString)
 

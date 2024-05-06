@@ -46,7 +46,7 @@
             </tr>
         </table>
 
-        
+        <!-- Table to display all items of the Marketplace -->
         <div class="ui padded segment" style="width: 80%;margin: 0 auto;text-align:justify;"> 
             <table class="ui blue celled table" id="itemTable"> 
                 <thead>
@@ -68,7 +68,7 @@
             const w1 = new Web3(window.ethereum);
 
 
-            const dataString = localStorage.getItem("resultJson");
+            const dataString = localStorage.getItem("resultJson");              // Extract the result information
 
                 // Check if the variable exists in localStorage
                 if (dataString) {
@@ -77,7 +77,7 @@
                     var items = dataString.split(',').reduce((acc, curr, index, array) => {
                     if (index % 6 === 0) {
 
-                        if (array[index+5] === 'false') {
+                        if (array[index+5] === 'false') {                   // Condition to specify sold objects
 
                         acc.push({
                                 itemId: curr,

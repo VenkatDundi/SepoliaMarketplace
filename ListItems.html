@@ -8,8 +8,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3/web3.min.js"></script>
         
         <!-- JS files -->
-        <!-- <script type="text/javascript" src="ListItemScript.js"></script> -->
-            
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>    
     </head> 
@@ -52,16 +51,6 @@
         <!-- <form id="listitemform" action="" style="margin-top: 2%;margin-bottom: 2%;">    -->
             <div class="ui violet padded segment" style="width: 50%;margin: 0 auto;text-align: justify;"> 
                 <table class="ui basic table"> 
-                    <!-- <tr> 
-                      <td> 
-                        <div class="ui labeled input"> 
-                          <div class="ui label"> 
-                            Enter Item Id 
-                          </div> 
-                          <input type="text" id='itemid' placeholder="Enter here!" required> 
-                        </div> 
-                      </td> 
-                    </tr>  -->
                     <tr> 
                       <td> 
                         <div class="ui labeled input"> 
@@ -86,7 +75,7 @@
                       <td> 
                         <div class="ui labeled input"> 
                           <div class="ui label"> 
-                            Enter Item Price 
+                            Enter Item Price (in Ether)
                           </div> 
                           <input type="text" id='price' placeholder="Enter here!" required> 
                         </div> 
@@ -110,11 +99,11 @@
             </div>
 
           <script type="text/javascript">
-            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));
+            console.log("Retrieved addr: ", localStorage.getItem('MyAddress'));       // Store Wallet Address
             localStorage.setItem('SentAddress3', localStorage.getItem('MyAddress'));
-            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("....");
+            document.getElementById("madd").innerText = localStorage.getItem('MyAddress').substring(0,9).concat("...."); // Print Wallet Address
           </script> 
-            
-          <script src="ListItemScript.js" ></script>
+          <!-- corresponding JS file  -->
+          <script src="ListItemScript.js" ></script>  
     </body> 
 </html>

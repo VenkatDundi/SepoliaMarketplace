@@ -1,6 +1,9 @@
 
 var My_Address = localStorage.getItem('SentAddress3')
 
+
+// ABI file which holds the components of the contract written using solidity
+
 const contABI = [
 	{
 		"inputs": [],
@@ -233,19 +236,19 @@ async function handleBuy(event) {
 		
 		try{
 
+			// Function call to View all items from marketplace
             var jsonData = await contIns.methods.viewAllItems().call();
 
             try {
-                // Parse the JSON data
-                //const jsonData = JSON.parse(res);
             
                 // Iterate over key-value pairs using for loop
                 for (const key in jsonData) {
                   if (Object.hasOwnProperty.call(jsonData, key)) {
                     const value = jsonData[key];
                     //console.log(`${key}: ${value}`);
-                    if (Number(`${key}`) === Number(ItemId)-1) {
 
+					// Identify the exact transaction based on the Item Id - Conversion from String to Number
+                    if (Number(`${key}`) === Number(ItemId)-1) {
                         var seller_validate = `${value}`.split(',')[4];
                         var item_validate = `${value}`.split(',')[5];
                         var x = `${value}`.split(',')[3];
@@ -262,7 +265,7 @@ async function handleBuy(event) {
             // console.log(seller_validate)
             // console.log(My_Address)
             
-
+			// Validate if the user who listed the item is same as buyer
             if (seller_validate.toLocaleLowerCase() === My_Address) {
 
                 alert("You need not buy an item listed by yourself!!")
@@ -270,13 +273,13 @@ async function handleBuy(event) {
             }
 
             else {
-
+				// validate if the item has been already purchased
                 if (item_validate === 'false') {
-
+					// function call for purchase item using item id and corresponding price captured from the result of above view result
                     var res = await contIns.methods.purchaseItem(ItemId).send({from: My_Address, value: x});
                     
-                    console.log('Purchase Txn result is : ', res);
-                    localStorage.setItem("MyAddress", My_Address);
+                    console.log('Purchase Txn result is : ', res);			
+                    localStorage.setItem("MyAddress", My_Address);				// Store result details
                     localStorage.setItem("thash", res.transactionHash);
                     localStorage.setItem("bhash", res.blockHash);
                     localStorage.setItem("bnum", res.blockNumber);
@@ -284,9 +287,9 @@ async function handleBuy(event) {
                     localStorage.setItem("tevent", res.events.ItemPurchased.event);
                     localStorage.setItem("iid", res.events.ItemPurchased.returnValues.id);
                     
-                    const w = "https://sepolia.etherscan.io/tx/".concat(res.transactionHash)
+                    const w = "https://sepolia.etherscan.io/tx/".concat(res.transactionHash)		// Formatting Ether Scan URL
                     localStorage.setItem("wurl", w);
-                    window.location.href = "PurchaseResult.html";
+                    window.location.href = "PurchaseResult.html";			// Redirect to corresponding result page
                 }
 
                 else{

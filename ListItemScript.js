@@ -1,6 +1,9 @@
 
 var My_Address = localStorage.getItem('SentAddress3')
 
+
+// ABI file which holds the components of the smart contract written in solidity
+
 const contABI = [
 	{
 		"inputs": [],
@@ -214,13 +217,16 @@ const contABI = [
 
 
 //console.log("Address is (without click) : ", My_Address);
+
+// Async function which triggers upon clicking a List button to list an item
+
 async function handleSubmit(event) {
 	event.preventDefault(); // Prevent default form submission behavior
     //const  My_Address = localStorage.getItem("MyAddress");
     console.log("Address is : ", My_Address);
-    // Get the values from the input text boxes
-    // const ItemId = document.getElementById('itemid').value;
+    
 	var regexp = /[^\w\s]/g;
+	// Get the values from the input text boxes
 	const til = document.getElementById('title').value;
 	const Title = til.replace(regexp, '');
     // Replace special characters with an empty string
@@ -228,20 +234,20 @@ async function handleSubmit(event) {
 	const Description = Desc.replace(regexp, '');
     const Price = document.getElementById('price').value;
 
-    // Redirect to another file with the values appended as query parameters
 
+	// Contract Address
 	const contAddress = '0x97B5ee79024046D5352A81b54685ce6C8aceB026'
 
-    if(window.ethereum) {
+    if(window.ethereum) {									//Validation Check 
         const w3ins = new Web3(window.ethereum);
         await window.ethereum.enable();
     
         const contIns = new w3ins.eth.Contract(contABI, contAddress);
 
-        const wiePrice = w3ins.utils.toWei(Price.toString(), 'ether');
+        const wiePrice = w3ins.utils.toWei(Price.toString(), 'ether');	// Price Conversion from Ether to Wei
         const res = await contIns.methods.listItem(Title, Description, wiePrice).send({from: My_Address});
         console.log('curr res: ', res)
-		localStorage.setItem("MyAddress", My_Address);
+		localStorage.setItem("MyAddress", My_Address);				// Set transaction values from result
 		localStorage.setItem("thash", res.transactionHash);
 		localStorage.setItem("bhash", res.blockHash);
 		localStorage.setItem("bnum", res.blockNumber);
@@ -250,13 +256,12 @@ async function handleSubmit(event) {
 		localStorage.setItem("iid", res.events.ItemListed.returnValues.id);
 		localStorage.setItem("iname", res.events.ItemListed.returnValues.title);
 		localStorage.setItem("iprice", res.events.ItemListed.returnValues.price);
-		const w = "https://sepolia.etherscan.io/tx/".concat(res.transactionHash)
+		const w = "https://sepolia.etherscan.io/tx/".concat(res.transactionHash)		// Etherscan URL formatting using txn result extraction 
 		localStorage.setItem("wurl", w);
-		window.location.href = "ListedResult.html";
+		window.location.href = "ListedResult.html";				// redirection to result page where the txn details will be displayed
 
     }
 
-    //window.location.href = "";
 }
 
 // Event listener for the form submission
